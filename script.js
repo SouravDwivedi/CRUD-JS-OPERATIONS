@@ -54,12 +54,12 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
             selectedRow = null
             showAlert("Student Added", "success");
         }
-        else{
+        else {
             selectedRow.children[0].textContent = Roll;
             selectedRow.children[1].textContent = Name;
             selectedRow.children[2].textContent = Location;
-            selectedRow =null;
-            showAlert("Student Info Edited","info");
+            selectedRow = null;
+            showAlert("Student Info Edited", "info");
         }
         clearFields();
     }
@@ -67,14 +67,14 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
 
 // Edit data
 
-document.querySelector("#student-list").addEventListener("click",(e) => {
- target = e.target;
- if(target.classList.contains("edit")){
-   selectedRow = target.parentElement.parentElement;
-   document.querySelector("#froll").value = selectedRow.children[0].textContent;
-   document.querySelector("#fname").value = selectedRow.children[1].textContent;
-   document.querySelector("#floc").value = selectedRow.children[2].textContent;
- }
+document.querySelector("#student-list").addEventListener("click", (e) => {
+    target = e.target;
+    if (target.classList.contains("edit")) {
+        selectedRow = target.parentElement.parentElement;
+        document.querySelector("#froll").value = selectedRow.children[0].textContent;
+        document.querySelector("#fname").value = selectedRow.children[1].textContent;
+        document.querySelector("#floc").value = selectedRow.children[2].textContent;
+    }
 })
 
 // Delete Data
@@ -84,4 +84,20 @@ document.querySelector("#student-list").addEventListener("click", (e) => {
         target.parentElement.parentElement.remove();
         showAlert("Data Deleted", "danger");
     }
+});
+
+// shortcut keys that will be disabled
+const disabledkeys = ["c", "C", "x", "J", "u", "I"];
+const showAlert = e => {
+e.preventDefault(); // prevent default behavior
+return alert("This feature is restricted!");
+}
+// call showAlert on mouse right-click
+document.addEventListener(" context menu", showAlert);
+document.addEventListener("keydown", e => {
+// call showAlert, if the pressed key is F12 or matched to disabled keys
+if((e. ctrlkey && disabledkeys.includes (e.key)) ||
+e.key === "F12") {
+showAlert(e);
+}
 });
