@@ -87,17 +87,17 @@ document.querySelector("#student-list").addEventListener("click", (e) => {
 });
 
 // shortcut keys that will be disabled
-const disabledkeys = ["c", "C", "x", "J", "u", "I"];
-const showAlert = e => {
-e.preventDefault(); // prevent default behavior
-return alert("This feature is restricted!");
-}
-// call showAlert on mouse right-click
-document.addEventListener(" context menu", showAlert);
-document.addEventListener("keydown", e => {
-// call showAlert, if the pressed key is F12 or matched to disabled keys
-if((e. ctrlkey && disabledkeys.includes (e.key)) ||
-e.key === "F12") {
-showAlert(e);
-}
-});
+// const disabledkeys = ["c", "C", "x", "J", "u", "I"];
+// const showAlert = e => {
+// e.preventDefault(); // prevent default behavior
+// return alert("This feature is restricted!");
+// }
+// // call showAlert on mouse right-click
+// document.addEventListener(" context menu", showAlert);
+// document.addEventListener("keydown", e => {
+// // call showAlert, if the pressed key is F12 or matched to disabled keys
+// if((e. ctrlkey && disabledkeys.includes (e.key)) ||
+// e.key === "F12") {
+// showAlert(e);
+// }
+// });
